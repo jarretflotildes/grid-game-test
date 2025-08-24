@@ -1,3 +1,59 @@
-[gd_scene format=3 uid="uid://6kou76m83v6b"]
+[gd_scene load_steps=9 format=3 uid="uid://ied0w850ug7t"]
+
+[ext_resource type="Texture2D" uid="uid://ckbfbq5m4oord" path="res://Assets/Tiles/Sprite-0001.png" id="1_jr68y"]
+[ext_resource type="Texture2D" uid="uid://csiowq0yiab4i" path="res://Assets/Tiles/Sprite-0002.png" id="2_rq8dt"]
+[ext_resource type="Script" uid="uid://2otyigeqwcnf" path="res://Script/Combat/TileMap.gd" id="3_0dhp0"]
+[ext_resource type="Texture2D" uid="uid://b38wwl6j0p6cx" path="res://Assets/Tiles/Sprite-0003.png" id="3_rq8dt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8hyy"]
+texture = ExtResource("1_jr68y")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vet15"]
+texture = ExtResource("2_rq8dt")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dhp0"]
+texture = ExtResource("3_rq8dt")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xd0fh"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_k8hyy")
+sources/1 = SubResource("TileSetAtlasSource_vet15")
+sources/2 = SubResource("TileSetAtlasSource_0dhp0")
 
 [node name="Combat" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_xd0fh")
+script = ExtResource("3_0dhp0")
+
+[node name="CombatPanel" type="Panel" parent="."]
+offset_left = 3.0
+offset_top = 516.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="PlayerUI" type="RichTextLabel" parent="CombatPanel"]
+layout_mode = 0
+offset_right = 550.0
+offset_bottom = 158.0
+text = "HELLO! :)"
+
+[node name="CardPanel" type="Panel" parent="."]
+offset_left = 1028.0
+offset_top = -1.0
+offset_right = 1278.0
+offset_bottom = 514.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CardPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 312.0
+offset_bottom = 498.0
+text = "Cards will go here!"
